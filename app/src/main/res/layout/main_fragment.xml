@@ -2,11 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/main_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".ui.main.MainFragment">
 
+    <!--
     <TextView
         android:id="@+id/message"
         android:layout_width="wrap_content"
@@ -16,14 +18,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    -->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <ImageView
+        android:id="@+id/item_list_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:src="@drawable/ic_my_icon"
-        android:contentDescription="@string/submit"
-        android:layout_margin="16dp" />
+        android:layout_marginStart="24dp"
+        android:text="Réunion A - 14h00 - Peach"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar"
+        app:layout_constraintStart_toEndOf="@+id/item_list_avatar"
+        app:layout_constraintTop_toTopOf="@+id/item_list_avatar" />
+
+    <TextView
+        android:id="@+id/item_list_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="maxime@lamzone.com, alex@lamzone.com,..."
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar"
+        app:layout_constraintStart_toEndOf="@+id/item_list_avatar"
+        app:layout_constraintTop_toTopOf="@+id/item_list_avatar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/item_list_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/item_list_name"
+        app:srcCompat="@drawable/ic_delete_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
