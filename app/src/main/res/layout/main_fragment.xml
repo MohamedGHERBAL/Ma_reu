@@ -36,19 +36,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Réunion A - 14h00 - Peach"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/item_list_avatar"
         app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar"
-        app:layout_constraintStart_toEndOf="@+id/item_list_avatar"
-        app:layout_constraintTop_toTopOf="@+id/item_list_avatar" />
+        app:layout_constraintStart_toEndOf="@+id/item_list_avatar" />
+
+    <TextView
+        android:id="@+id/item_list_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/item_list_avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar"
+        app:layout_constraintStart_toEndOf="@+id/item_list_name" />
+
+    <TextView
+        android:id="@+id/item_list_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/item_list_avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar"
+        app:layout_constraintStart_toEndOf="@+id/item_list_hours" />
+
 
     <TextView
         android:id="@+id/item_list_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="maxime@lamzone.com, alex@lamzone.com,..."
+        android:text=""
         android:textSize="12sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar"

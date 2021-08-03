@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 /**
  * Created by Mohamed GHERBAL (pour OC) on 20/07/2021
  */
-public class ListReunionPagerAdapter extends FragmentPagerAdapter {
+public class ListMeetingPagerAdapter extends FragmentPagerAdapter {
 
-    public ListReunionPagerAdapter(FragmentManager fm) {
+    public ListMeetingPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -29,6 +29,6 @@ public class ListReunionPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public int getCount() {
-        return 1;
+        return 0;
     }
 }

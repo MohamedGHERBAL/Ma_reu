@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddReunionActivity">
+    tools:context=".AddMeetingActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,14 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameLyt"
+            android:id="@+id/titleMeetingLyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/sujetreu"
+                android:id="@+id/titleMeeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -35,37 +35,36 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/TextDate"
+            android:id="@+id/TimeLyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/TextViewDate"
+            <Button
+                android:id="@+id/timeButton"
+                android:onClick="popTimePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Entrer une date"
-                android:inputType="date"
-                android:focusable="false"
-                android:focusableInTouchMode="true"/>
+                android:text="Définir une heure"
+                app:layout_constraintVertical_bias="0.1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/locationLyt"
+            android:id="@+id/roomLyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/location"
+                android:id="@+id/room"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Lieu de la réunion"
+                android:hint="Salle de la réunion"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 

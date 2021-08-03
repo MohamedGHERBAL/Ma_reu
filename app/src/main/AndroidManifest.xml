@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MaRéu"
         tools:replace="android:appComponentFactory">
 
-        <activity android:name=".AddReunionActivity" />
+        <activity android:name=".AddMeetingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
