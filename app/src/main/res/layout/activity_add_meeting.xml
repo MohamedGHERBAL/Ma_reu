@@ -35,6 +35,23 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dateLyt"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Entrer une date"
+                android:inputType="date"
+                android:focusable="false"
+                android:focusableInTouchMode="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/TimeLyt"
@@ -43,29 +60,32 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" >
 
-            <Button
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/timeButton"
                 android:onClick="popTimePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Définir une heure"
-                app:layout_constraintVertical_bias="0.1" />
+                android:ems="10"
+                android:hint="Entrer une heure"
+                android:inputType="date"
+                android:focusable="false"
+                android:focusableInTouchMode="true"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/roomLyt"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp">
+            android:layout_marginTop="18dp" >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/room"
+            <Spinner
+                android:id="@+id/roomSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/roomLyt"
                 android:ems="10"
-                android:hint="Salle de la réunion"
-                android:inputType="text" />
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -82,7 +102,7 @@
                 android:lines="4"
                 android:minLines="4"
                 android:ems="10"
-                android:hint="Liste des participants"
+                android:hint="Liste des participants (ex: email@email.com, email@lamzone.com...)"
                 android:inputType="textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +115,7 @@
             android:layout_gravity="center"
             app:cornerRadius="20dp"
             android:layout_marginTop="20dp"
-            android:text="Ajouté"/>
+            android:text="Ajouter" />
 
     </LinearLayout>
 

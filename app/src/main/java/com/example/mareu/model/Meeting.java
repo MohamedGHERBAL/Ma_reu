@@ -13,11 +13,17 @@ public class Meeting implements Parcelable {
     /** Identifier */
     private long id;
 
+    /** color */
+    private int color;
+
     /** sujetreu */
     private String sujetreu;
 
     /** date */
     private String date;
+
+    /** time */
+    private String time;
 
     /** location */
     private String location;
@@ -31,10 +37,12 @@ public class Meeting implements Parcelable {
      * @param sujetreu
      * @param date
      */
-    public Meeting(long id, String sujetreu, String date, String location, String users){
+    public Meeting(long id, int color, String sujetreu, String date, String time, String location, String users){
         this.id = id;
+        this.color = color;
         this.sujetreu = sujetreu;
         this.date = date;
+        this.time = time;
         this.location = location;
         this.users = users;
     }
@@ -45,6 +53,14 @@ public class Meeting implements Parcelable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 
     public String getSujetreu() {
@@ -59,8 +75,16 @@ public class Meeting implements Parcelable {
         return date;
     }
 
-    public void setDate(String phoneNumber) {
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getLocation() {
@@ -79,6 +103,10 @@ public class Meeting implements Parcelable {
         this.users = users;
     }
 
+    public String getMeetingInfo() {
+        return getSujetreu() + " - " + getTime() + " - " + getLocation();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,8 +122,10 @@ public class Meeting implements Parcelable {
 
     protected Meeting(Parcel in) {
         id = in.readLong();
+        color = in.readInt();
         sujetreu = in.readString();
         date = in.readString();
+        time = in.readString();
         location = in.readString();
         users = in.readString();
     }
@@ -108,8 +138,10 @@ public class Meeting implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
+        dest.writeInt(color);
         dest.writeString(sujetreu);
         dest.writeString(date);
+        dest.writeString(time);
         dest.writeString(location);
         dest.writeString(users);
     }

@@ -4,20 +4,28 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mareu.DI.DI;
+import com.example.mareu.MainActivity;
 import com.example.mareu.R;
-import com.example.mareu.events.DeleteMeetingEvent;
+import com.example.mareu.events.DateInfoMeetingEvent;
 import com.example.mareu.model.Meeting;
+import com.example.mareu.service.DummyMeetingGenerator;
 import com.example.mareu.service.MeetingApiService;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
@@ -26,14 +34,16 @@ import butterknife.ButterKnife;
 /**
  * Created by Mohamed GHERBAL (pour OC) on 21/07/2021
  */
-public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeetingRecyclerViewAdapter.ViewHolder> {
+public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeetingRecyclerViewAdapter.ViewHolder>  {
 
     private List<Meeting> mMeetings;
-    private MeetingApiService meetingApiService;
+    private List<Meeting> mMeetingsFull;
+    // private MeetingApiService meetingApiService;
 
     public MyMeetingRecyclerViewAdapter(List<Meeting> items) {
         Log.e("MyMeetingRecViewAda", "MyMeetingRecyclerViewAdapter is call !");
         mMeetings = items;
+        // mMeetingsFull = new ArrayList<>(items);
     }
 
     @Override
@@ -46,10 +56,9 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Meeting meeting = mMeetings.get(position);
-        holder.mReunionName.setText(meeting.getSujetreu());
+        holder.mReunionColor.setColorFilter(meeting.getColor());
+        holder.mReunionInfo.setText(meeting.getMeetingInfo());
         holder.mReunionMail.setText(meeting.getUsers());
-        holder.mReunionHours.setText(meeting.getDate());
-        holder.mReunionRoom.setText(meeting.getLocation());
 
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +68,13 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
                 notifyDataSetChanged();
             }
         });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new DateInfoMeetingEvent(meeting));
+            }
+        });
     }
 
     @Override
@@ -66,7 +82,8 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         return mMeetings == null ? 0 : mMeetings.size();
     }
 
-    public void setData(List<Meeting> meetings){
+
+    public void setData(List<Meeting> meetings) {
         Log.e("MeetingRecyclerViewAda", "setData is call !");
         this.mMeetings = meetings;
         notifyDataSetChanged();
@@ -74,15 +91,9 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.item_list_avatar)
-        public ImageView mReunionAvatar;
+        public ImageView mReunionColor;
         @BindView(R.id.item_list_name)
-        public TextView mReunionName;
-
-        @BindView(R.id.item_list_hours)
-        public TextView mReunionHours;
-        @BindView(R.id.item_list_room)
-        public TextView mReunionRoom;
-
+        public TextView mReunionInfo; // old mReunionName
         @BindView(R.id.item_list_mail)
         public TextView mReunionMail;
         @BindView(R.id.item_list_delete_button)

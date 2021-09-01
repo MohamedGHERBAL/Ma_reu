@@ -3,17 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/menu_item1"
-        android:title="Trier par"
+        android:title="Filtrer par"
         android:icon="@drawable/ic_baseline_filter_list_24dp"
         app:showAsAction="ifRoom">
         <menu>
-            <item
-                android:id="@+id/date"
-                android:title="Trier par Date" />
 
             <item
-                android:id="@+id/room"
-                android:title="Trier par Lieu" />
+                android:id="@+id/datefilter"
+                android:title="Trier par date" />
+
+            <item
+                android:id="@+id/roomfilter"
+                android:title="Trier par salle" />
+
+            <item
+                android:id="@+id/resetfilter"
+                android:title="Restaurer" />
+
         </menu>
     </item>
 </menu>

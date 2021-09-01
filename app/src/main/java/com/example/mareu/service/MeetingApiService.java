@@ -2,6 +2,7 @@ package com.example.mareu.service;
 
 import com.example.mareu.model.Meeting;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,14 +17,20 @@ public interface MeetingApiService {
     List<Meeting> getMeetings();
 
     /**
+     * Create a meeting
+     * @param meeting
+     */
+    void createMeeting(Meeting meeting);
+
+    /**
      * Deletes a meeting
      * @param meeting
      */
     void deleteMeeting(Meeting meeting);
 
     /**
-     * Create a meeting
-     * @param meeting
+     * Filter meeting list for room
+     * @param room
      */
-    void createMeeting(Meeting meeting);
+    List<Meeting> getMeetingRoomFilter(String room);
 }

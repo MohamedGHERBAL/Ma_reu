@@ -1,3 +1,19 @@
 <resources>
+
     <string name="app_name">Ma réu</string>
+
+    <string-array name="room_list_array">
+        <item>Peach</item>
+        <item>Mario</item>
+        <item>Luigi</item>
+
+        <item>Donkey</item>
+        <item>Bowser</item>
+        <item>Wario</item>
+        <item>Toad</item>
+        <item>Daisy</item>
+        <item>Yoshi</item>
+        <item>Bowser Jr</item>
+    </string-array>
+
 </resources>

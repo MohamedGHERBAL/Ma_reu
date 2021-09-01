@@ -1,7 +1,17 @@
 package com.example.mareu.service;
 
-import com.example.mareu.model.Meeting;
+import android.annotation.SuppressLint;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.example.mareu.model.Meeting;
+import com.example.mareu.utils.DateUtils;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,4 +47,17 @@ public class DummyMeetingApiService implements MeetingApiService {
         meetings.add(meeting);
     }
 
+    /**
+     * {@inheritDoc}
+     * @param room
+     */
+    @Override
+    public List<Meeting> getMeetingRoomFilter(String room) {
+        List<Meeting> mMeetingFiltered = new ArrayList<>();
+
+        for (Meeting meeting : meetings) {
+            if (meeting.getLocation().equals(room)) mMeetingFiltered.add(meeting);
+        }
+        return mMeetingFiltered;
+    }
 }
