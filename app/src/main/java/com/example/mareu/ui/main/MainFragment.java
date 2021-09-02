@@ -198,12 +198,7 @@ public class MainFragment extends Fragment implements DatePickerDialog.OnDateSet
         super.onStop();
         EventBus.getDefault().unregister(this);
     }
-/*
-    @Subscribe
-    public void onViewDateInfoMeetingEvent(DateInfoMeetingEvent event) {
-        Toast.makeText(getActivity(), "Date: ", Toast.LENGTH_SHORT).show();
-    }
-*/
+
     /**
      * Fired if the user clicks on a delete button.
      * @param event

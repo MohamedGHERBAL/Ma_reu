@@ -11,10 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mareu.R;
-import com.example.mareu.events.DateInfoMeetingEvent;
 import com.example.mareu.model.Meeting;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -54,14 +51,6 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
                 Log.i("MeetingRecyclerViewAda", "mDeleteButton is called !");
                 mMeetings.remove(position);
                 notifyDataSetChanged();
-            }
-        });
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMeetings.get(position);
-                EventBus.getDefault().post(new DateInfoMeetingEvent(meeting));
             }
         });
     }
