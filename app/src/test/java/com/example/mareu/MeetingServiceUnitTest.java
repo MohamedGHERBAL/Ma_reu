@@ -1,10 +1,7 @@
 package com.example.mareu;
 
-import static android.graphics.Color.rgb;
-
 import com.example.mareu.DI.DI;
 import com.example.mareu.model.Meeting;
-import com.example.mareu.model.Room;
 import com.example.mareu.service.DummyMeetingGenerator;
 import com.example.mareu.service.MeetingApiService;
 
@@ -16,8 +13,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -39,10 +36,12 @@ public class MeetingServiceUnitTest {
     }
 
     // Use for Test Only
+    /*
     @Test
     public void addition_isCorrect() {
         assertEquals(3, 1 + 2);
     }
+    */
 
     @Test
     public void getMeetings_WithSuccess() {
@@ -59,22 +58,23 @@ public class MeetingServiceUnitTest {
     public void deleteMeetings_WithSuccess() {
         Meeting meetingToDelete = service.getMeetings().get(0);
         service.deleteMeeting(meetingToDelete);
+
         assertFalse (service.getMeetings().contains(meetingToDelete));
     }
 
     @Test
-    public void addMeeting_WithSuccess () {
-        Room room = new room("Peach");
+    public void createMeetings_WithSuccess () {
+        Meeting testMeeting = new Meeting(0, 200, "Test", "01/1/2021", "00h00", "Peach", "test@lamzone.com");
+        service.createMeeting(testMeeting);
+
+        assertTrue (service.getMeetings().contains(testMeeting));
     }
 
     @Test
     public void filteringRoom_WithSuccess() {
-        // void
-        List<String> list = new ArrayList<>(Arrays.asList("1@1.1", "2@2.2"));
-        Calendar cal = Calendar.getInstance();
-        // Meeting test = new Meeting(rgb(100, 150, 200), "Salle A", cal.getTime(), "test", list);
+        Meeting test = new Meeting(0,200,"Test", "01/1/2021", "00h00", "Peach", "test@lamzone.com");
         service.createMeeting(test);
 
-        assertEquals(2, service.getMeetingRoomFilter("Peach").size());
+        assertEquals (2, service.getMeetingRoomFilter("Peach").size());
     }
 }

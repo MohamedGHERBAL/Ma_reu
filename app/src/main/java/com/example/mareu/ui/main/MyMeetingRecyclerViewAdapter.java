@@ -4,28 +4,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mareu.MainActivity;
 import com.example.mareu.R;
 import com.example.mareu.events.DateInfoMeetingEvent;
 import com.example.mareu.model.Meeting;
-import com.example.mareu.service.DummyMeetingGenerator;
-import com.example.mareu.service.MeetingApiService;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
@@ -37,13 +27,11 @@ import butterknife.ButterKnife;
 public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeetingRecyclerViewAdapter.ViewHolder>  {
 
     private List<Meeting> mMeetings;
-    private List<Meeting> mMeetingsFull;
-    // private MeetingApiService meetingApiService;
+    // private List<Meeting> mMeetingsFull;
 
     public MyMeetingRecyclerViewAdapter(List<Meeting> items) {
-        Log.e("MyMeetingRecViewAda", "MyMeetingRecyclerViewAdapter is call !");
+        Log.i("MyMeetingRecViewAda", "MyMeetingRecyclerViewAdapter is called !");
         mMeetings = items;
-        // mMeetingsFull = new ArrayList<>(items);
     }
 
     @Override
@@ -63,7 +51,7 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("MeetingRecyclerViewAda", "mDeleteButton is call !");
+                Log.i("MeetingRecyclerViewAda", "mDeleteButton is called !");
                 mMeetings.remove(position);
                 notifyDataSetChanged();
             }
@@ -72,6 +60,7 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mMeetings.get(position);
                 EventBus.getDefault().post(new DateInfoMeetingEvent(meeting));
             }
         });
@@ -82,9 +71,8 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         return mMeetings == null ? 0 : mMeetings.size();
     }
 
-
     public void setData(List<Meeting> meetings) {
-        Log.e("MeetingRecyclerViewAda", "setData is call !");
+        Log.i("MeetingRecyclerViewAda", "setData is called !");
         this.mMeetings = meetings;
         notifyDataSetChanged();
     }
@@ -93,7 +81,7 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         @BindView(R.id.item_list_avatar)
         public ImageView mReunionColor;
         @BindView(R.id.item_list_name)
-        public TextView mReunionInfo; // old mReunionName
+        public TextView mReunionInfo;
         @BindView(R.id.item_list_mail)
         public TextView mReunionMail;
         @BindView(R.id.item_list_delete_button)

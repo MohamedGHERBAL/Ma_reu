@@ -16,8 +16,6 @@ import androidx.fragment.app.Fragment;
 import com.example.mareu.databinding.MainActivityBinding;
 import com.example.mareu.ui.main.MainFragment;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     // for ViewBinding
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.datefilter:
                 onDateFilterSelected();
-                Toast.makeText(this, "La liste est triée par date.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Séléctionner une date", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.roomfilter:

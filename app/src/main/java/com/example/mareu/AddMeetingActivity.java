@@ -88,7 +88,7 @@ public class AddMeetingActivity extends AppCompatActivity implements DatePickerD
         };
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
-        // timePickerDialog.setTitle("Définir une heure");
+        // timePickerDialog.setTitle("Définir une heure"); // Set title for TimePickerDialog.
         timePickerDialog.show();
     }
 

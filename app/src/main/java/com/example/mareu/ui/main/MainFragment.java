@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 
-
 import com.example.mareu.DI.DI;
 import com.example.mareu.R;
 
@@ -40,7 +39,6 @@ import java.util.List;
 
 public class MainFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
 
-    //private MainViewModel mViewModel;
     public MeetingApiService mApiService;
     private List<Meeting> mMeetings;
     private RecyclerView mRecyclerView;
@@ -64,7 +62,7 @@ public class MainFragment extends Fragment implements DatePickerDialog.OnDateSet
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.e("MainFragment", "onCreateView msg");
+        Log.i("MainFragment", "onCreateView is called !");
         View view = inflater.inflate(R.layout.fragment_meeting_list, container, false);
         Context context = view.getContext();
         adapter = new MyMeetingRecyclerViewAdapter(mMeetings);
@@ -78,20 +76,12 @@ public class MainFragment extends Fragment implements DatePickerDialog.OnDateSet
         adapter.setData(mMeetings);
         return view;
     }
-/*
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
-    }
-*/
 
     /**
      * Init the List of meetings
      */
     private void initList() {
-        Log.e("MainFragment", "initList is call !");
+        Log.i("MainFragment", "initList is called !");
         mApiService = DI.getNewInstanceApiService();
         mMeetings = mApiService.getMeetings();
         mRecyclerView.setAdapter(adapter);
@@ -99,32 +89,32 @@ public class MainFragment extends Fragment implements DatePickerDialog.OnDateSet
     }
 
     private void initListForRoom(String room) {
-        Log.e("MainFragment", "initListForRoom is call !");
+        Log.i("MainFragment", "initListForRoom is called !");
         adapter.setData(mApiService.getMeetingRoomFilter(room));
     }
 
     private void initListForReset() {
-        Log.i("MainFragment", "initListForReset is call !");
+        Log.i("MainFragment", "initListForReset is called !");
         adapter.setData(mApiService.getMeetings());
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        Log.e("MainFragment", "ActivityResult called");
+        Log.i("MainFragment", "ActivityResult is called");
 
         if (requestCode == 43 && data != null) {
-            Log.e("MainFragment", "Existing data");
+            Log.i("MainFragment", "Existing data !");
             Meeting meeting = data.getParcelableExtra("meeting");
 
             if (meeting != null) {
-                Log.e("MainFragment", "meeting is not null");
+                Log.i("MainFragment", "meeting is not null !");
                 mMeetings.add(meeting);
                 adapter.notifyDataSetChanged();
                 initListForReset();
             }
 
             else {
-                Log.e("MainFragment", "Error : meeting is null");
+                Log.i("MainFragment", "Error : meeting is null !");
             }
         }
     }

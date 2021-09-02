@@ -18,9 +18,9 @@ public abstract class DummyMeetingGenerator {
     private static int meetingColor;
     
     public static List<Meeting> dummyMeetings = Arrays.asList(
-            new Meeting(1,meetingColor(), "Réunion A","17/8/2021", "14h00", "Peach", "maxime@lamzone.com, alex@lamzone.com"),
-            new Meeting(2,meetingColor2(), "Réunion B","18/8/2021", "16h00", "Mario", "paul@lamzone.com, viviane@lamzone.com"),
-            new Meeting(3,meetingColor2(), "Réunion C","19/8/2021", "19h00", "Luigi", "amandine@lamzone.com, luc@lamzone.com")
+            new Meeting(1,meetingColor(), "Réunion A","20/9/2021", "14h00", "Peach", "maxime@lamzone.com, alex@lamzone.com"),
+            new Meeting(2,meetingColor2(), "Réunion B","21/9/2021", "16h00", "Mario", "paul@lamzone.com, viviane@lamzone.com"),
+            new Meeting(3,meetingColor2(), "Réunion C","22/9/2021", "19h00", "Luigi", "amandine@lamzone.com, luc@lamzone.com")
     );
 
     public static int generateColor() {

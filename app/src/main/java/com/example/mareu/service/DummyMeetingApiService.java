@@ -1,17 +1,8 @@
 package com.example.mareu.service;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
-import android.widget.Toast;
-
 import com.example.mareu.model.Meeting;
-import com.example.mareu.utils.DateUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**

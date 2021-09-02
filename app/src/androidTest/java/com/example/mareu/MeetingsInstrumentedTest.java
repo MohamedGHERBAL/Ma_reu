@@ -170,7 +170,7 @@ public class MeetingsInstrumentedTest {
         onView(withText(endsWith("Trier par date")))
                 .perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName())))
-                .perform(PickerActions.setDate(2021, 8, 17));
+                .perform(PickerActions.setDate(2021, 9, 20));
         onView(withText("OK")).perform(click());
 
         // Check if ITEMS_COUNT is decreased by 2

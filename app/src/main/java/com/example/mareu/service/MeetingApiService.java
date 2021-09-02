@@ -2,7 +2,6 @@ package com.example.mareu.service;
 
 import com.example.mareu.model.Meeting;
 
-import java.util.Date;
 import java.util.List;
 
 /**
