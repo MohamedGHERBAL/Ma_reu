@@ -98,7 +98,7 @@ public class MeetingsInstrumentedTest {
     }
 
     @Test
-    public void checkIf_AddMeeting_Work() {
+    public void addMeeting_WithSuccess() {
         // Open AddMeetingActivity
         onView(withId(R.id.add_meeting))
             .perform(click());
@@ -143,7 +143,7 @@ public class MeetingsInstrumentedTest {
     }
 
     @Test
-    public void checkIf_RoomFilter_Work() {
+    public void roomFiltering_WithSuccess() {
         // Room Filter
         onView(withId(R.id.main_content))
                 .check(matches(hasMinimumChildCount(3)));
@@ -161,7 +161,7 @@ public class MeetingsInstrumentedTest {
     }
 
     @Test
-    public void checkIf_DateFilter_Work() {
+    public void dateFiltering_WithSuccess	() {
         // Date Filter
         onView(withId(R.id.main_content))
                 .check(matches(hasMinimumChildCount(3)));

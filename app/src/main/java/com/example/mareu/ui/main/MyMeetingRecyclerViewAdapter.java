@@ -24,7 +24,6 @@ import butterknife.ButterKnife;
 public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeetingRecyclerViewAdapter.ViewHolder>  {
 
     private List<Meeting> mMeetings;
-    // private List<Meeting> mMeetingsFull;
 
     public MyMeetingRecyclerViewAdapter(List<Meeting> items) {
         Log.i("MyMeetingRecViewAda", "MyMeetingRecyclerViewAdapter is called !");
@@ -45,13 +44,10 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         holder.mReunionInfo.setText(meeting.getMeetingInfo());
         holder.mReunionMail.setText(meeting.getUsers());
 
-        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("MeetingRecyclerViewAda", "mDeleteButton is called !");
-                mMeetings.remove(position);
-                notifyDataSetChanged();
-            }
+        holder.mDeleteButton.setOnClickListener(v -> {
+            Log.i("MeetingRecyclerViewAda", "mDeleteButton is called !");
+            mMeetings.remove(position);
+            notifyDataSetChanged();
         });
     }
 

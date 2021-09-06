@@ -3,10 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/layout/activity_add_meeting.xml" value="0.5" />
+        <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/layout/activity_add_meeting.xml" value="0.33" />
         <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/layout/fragment_meeting_list.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/layout/main_activity.xml" value="0.5" />
-        <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/layout/main_fragment.xml" value="0.5" />
+        <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/layout/main_activity.xml" value="0.33" />
+        <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/layout/main_fragment.xml" value="0.33" />
         <entry key="..\:/Users/Akim Saladin/AndroidStudioProjects/Mareu/app/src/main/res/menu/actionbar_menu.xml" value="0.5" />
       </map>
     </option>

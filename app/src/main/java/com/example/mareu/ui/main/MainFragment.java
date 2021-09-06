@@ -132,7 +132,6 @@ public class MainFragment extends Fragment implements DatePickerDialog.OnDateSet
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         Log.i(String.valueOf(getActivity()), "onDateSet is called !");
-        String date = dayOfMonth + "/" + month + "/" + year;
         List<Meeting> filteredMeetingList = new ArrayList<Meeting>();
 
         for (Meeting meeting : mMeetings) {

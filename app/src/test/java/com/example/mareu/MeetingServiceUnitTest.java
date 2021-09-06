@@ -35,14 +35,6 @@ public class MeetingServiceUnitTest {
         service = DI.getNewInstanceApiService();
     }
 
-    // Use for Test Only
-    /*
-    @Test
-    public void addition_isCorrect() {
-        assertEquals(3, 1 + 2);
-    }
-    */
-
     @Test
     public void getMeetings_WithSuccess() {
         List<Meeting> meetings = service.getMeetings();
@@ -71,7 +63,7 @@ public class MeetingServiceUnitTest {
     }
 
     @Test
-    public void filteringRoom_WithSuccess() {
+    public void filterRoom_WithSuccess() {
         Meeting test = new Meeting(0,200,"Test", "01/1/2021", "00h00", "Peach", "test@lamzone.com");
         service.createMeeting(test);
 

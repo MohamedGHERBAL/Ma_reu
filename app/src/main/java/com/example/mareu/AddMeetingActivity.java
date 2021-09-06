@@ -2,8 +2,6 @@ package com.example.mareu;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -19,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.app.TimePickerDialog;
 
 import com.example.mareu.databinding.ActivityAddMeetingBinding;
@@ -76,15 +73,10 @@ public class AddMeetingActivity extends AppCompatActivity implements DatePickerD
 
     // Open POPTimePicker
     public void popTimePicker(View view) {
-        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener()
-        {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute)
-            {
-                hour = selectedHour;
-                minute = selectedMinute;
-                binding.timeButton.setText(String.format(Locale.getDefault(), "%02dh%02d",hour, minute));
-            }
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = (timePicker, selectedHour, selectedMinute) -> {
+            hour = selectedHour;
+            minute = selectedMinute;
+            binding.timeButton.setText(String.format(Locale.getDefault(), "%02dh%02d",hour, minute));
         };
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
@@ -94,7 +86,7 @@ public class AddMeetingActivity extends AppCompatActivity implements DatePickerD
 
     // Spinner list rooms
     private void listRooms() {
-        Spinner dynamicSpinner = (Spinner) binding.roomSpinner;
+        Spinner dynamicSpinner = binding.roomSpinner;
         String[] items = new String[]
                 { "Peach", "Mario", "Luigi",
                         "Donkey", "Bowser", "Wario",
@@ -147,15 +139,6 @@ public class AddMeetingActivity extends AppCompatActivity implements DatePickerD
         intent.putExtra("meeting", meeting);
         setResult(43, intent);
         finish();
-    }
-
-    /**
-     * Used to navigate to this activity
-     * @param activity
-     */
-    public static void navigate(FragmentActivity activity) {
-        Intent intent = new Intent(activity, AddMeetingActivity.class);
-        ActivityCompat.startActivityForResult(activity, intent, 43, null);
     }
 
     @Override
